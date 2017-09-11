@@ -1,0 +1,33 @@
+1)Sistema de transferencias de un banco.
+  Homero toma cerveza, aplasta la lata con la zapan y mientras mira la tele (si eso no es concurrencia, no se que lo es)
+  El chino del super que, mientras me cobra, mira las camaras de suguridad para que no le choreen.
+
+2)Concurrencia: capacidad de ejecutar multiples tareas simultanea o paralelamente.
+  Procesamiento secuencial: unico flujo de control que ejecuta una instruccion a la vez.
+  Procesamiento paralelo: procesamiento fisico simultaneo de un set de instrucciones en mas de un procesador.
+  Procesamiento concurrente: procesamiento logico simultaneo de un set de instrucciones en un unico procesador.
+
+3) Sistemas multithreaded: ponele que vos estas tomando una birra mientras ves la tele. Cada 1 minuto, switcheas la tarea que estas haciendo; esto es, si estabas mirando la tele, te pones a tomar birra, luego de otro minuto, te pones a mirar la tele, asi en loop. Ponele que es mas importante tomar birra que mirar la tele, ahi le estarias dando prioridad a una de las tareas. Otros ejemplos son un sistema operativo time-shared, multiprocesadores o real-time.
+
+Sistemas de computo distribuido: servidores de archivos en una red, sistemas de base de datos en bancos y aerolineas, servidor web distribuido de esos en que se pueden acceder a los datos remotamente, etc.
+
+Sistemas de computo paralelo: calculo cientifico, procesamiento de imagenes, problemas combinatorios, etc.
+
+4)Deadlock: error en que dos procesos esperan un recurso compartido que tiene el otro. Para que ocurra, debe darse que los procesos compartan recursos que podrian usar con EM (No estoy seguro que es EM), que mantengan los recursos que pidan, que no haya otra forma de quitar un recurso a otro proceso mas que este lo libere voluntariamente y una espera ciclica en la que cada proceso tiene un recurso que requiere el sucesor.
+
+5)Inanicion: es un problema que se da cuando un proceso no puede acceder nunca a un recurso compartido. Ponele que vos tenes una impresora y la pueden usar todos, pero los jefes tienen prioridad. Suponete, ademas, que los jefes no dejan de imprimir nunca y que vos, un simple y mortal empleado queres imprimir. Bueno, no vas a imprimir ni en pedo. Eso es estarveishon.
+
+6)Significa que para los mismos datos no siempre la salida es la misma. Ponele que vos tenes:
+x=0;
+x=x+1;
+Bueno, depende de como ejecutes, los resultados.
+
+7)La comunicacion es la forma en que se organiza y se transmiten datos entre tareas concurrentes. Hay dos protocolos: el de memoria compartida y por pasaje de mensajes.
+Memoria compartida: los procesos intercambian informacion sobre la memoria compartida o actuan coordinadamente sobre datos residentes en ella.
+Por pasaje de mensajes: se establece un canal(logico o fisico) para transmitir informacion entre procesos.
+
+8)a)Sincronizacion: es el ajuste temporal de procesos para lograr la coordinacion entre ellos. Hay dos formas: sincronizacion por exclusion mutua y por condicion.
+Sincronizacion por exclusion mutua: asegurar que solo un proceso tenga acceso al recurso compartido por un espacio de tiempo.
+Sincronizacion por condicion: bloquear la ejecucion de un proceso hasta que se cumpla una condicion dada.
+
+b)En el problema de productores y consumidores se utilizan dos mecanismos: el de condicion (el proceso de consumir se bloquea hasta que se de que se pueda consumir) y el de exclusion mutua (el consumidor consumira lo que produjo el productor, pero nunca ambos intentaran usar un mismo recurso)
