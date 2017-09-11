@@ -30,4 +30,42 @@ Por pasaje de mensajes: se establece un canal(logico o fisico) para transmitir i
 Sincronizacion por exclusion mutua: asegurar que solo un proceso tenga acceso al recurso compartido por un espacio de tiempo.
 Sincronizacion por condicion: bloquear la ejecucion de un proceso hasta que se cumpla una condicion dada.
 
-b)En el problema de productores y consumidores se utilizan dos mecanismos: el de condicion (el proceso de consumir se bloquea hasta que se de que se pueda consumir) y el de exclusion mutua (el consumidor consumira lo que produjo el productor, pero nunca ambos intentaran usar un mismo recurso)
+b)En el problema de productores y consumidores se utilizan dos mecanismos: el de condicion (el proceso de consumir se bloquea hasta que se de que se pueda consumir) y el de exclusion mutua (el consumidor consumira lo que produjo el productor, pero nunca ambos intentaran usar un mismo recurso).
+
+9)a)Paralelismo iterativo: un ejemplo es la resolucion de sistemas de ecuaciones, calculos con matrices, etc.
+Paralelismo recursivo: algunos ejemplos son el sort by merge, calculo de raices en funciones continuas, problema del viajante, etc.
+Productor-consumidor:el pipe en lainucs, esquema productor-consumidor, etc.
+Cliente-servidor: mecanismo de invocacion de tipo RPC o rendezvous.
+Pares que interactuan: e-mule.
+b) Que precisamente lo que se hace es dividir (se divide al arreglo en "cachos" de datos) y conquistar (se ordena cada "cacho" paralelamente y se hace un merge).
+c)Cualquier pagina web.
+
+10)Te lo debo mein frend.
+
+11)a)Si es estatica, la red consta de links punto a punto. Tipicamente se usan para maquinas de MP (No se que es MP).
+Si es dinamica se construyen usando switches y enlaces de comunicacion. Normalmente se usan para maquinas de MC (No se que es MC).
+Dinamicas: bus, multistage y arbol dinamico.
+Estaticas: estrella, mesh, completamente conectada, arbol estatico, etc.
+b)Es una relacion inversa, es decir, a mayor numero de procesadores menor potencia; pero a menor numero de procesadores mayor potencia.
+
+12)El problema consiste en como solucionar cuando un proceso toma una accion que invalida las suposiciones hechas por otro proceso. No se como solucionarlo, pero quiza la respuesta este en interleaving extremo y/o ASV, no estoy seguro.
+
+13)Consiste en que si x=e, entonces e contiene a lo sumo una referencia critica y x no es referenciada por otro proceso o bien e no contiene referencias criticas, pudiendo ser leida por otro proceso.
+El efecto es que la ejecucion de la sentencia de asignacion parece atomica, pues la variable compartida sera leida o escrita solo una vez.
+Ejemplos:
+int x=0, y=0;
+co x=x+1; y=y+1; oc
+
+En el ejemplo de arriba se muestra que no hay referencias criticas, pues x solo depende de x e y solo de y, por lo tanto se cumple ASV 
+
+int x=0, y=0;
+co x=y+1; y=x+1; oc
+
+En el ejemplo de arriba x e y pueden tomar muchos valores pero x=1 y=1 no sera uno de ellos.
+
+14)a)Cumple con ASV solo y=y-1, ya que x posee dos referencias criticas y z, si bien solo posee una, es referenciada por otro proceso.
+b)x=1, z=2, y=3
+  y=3, z=4, x=-1
+  y=3, x=0, z=0
+
+Notar que y es siempre igual :)
