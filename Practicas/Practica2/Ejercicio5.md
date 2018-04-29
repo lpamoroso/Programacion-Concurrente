@@ -15,6 +15,7 @@ int contador[10] = ([10], 0);
 int notas[10];
 int tareas[50];
 int id;
+
 Process Alumno[i=1..50](){
   tareas[i] = elegir_tarea();
   P(mutex_cantidad);
@@ -35,6 +36,7 @@ Process Alumno[i=1..50](){
   V(barrier_maestra);
   P(barrier_correccion[tareas[i]]);
 }
+
 Process Maestra(){
   int orden = 1;
   while(orden <= 10){
