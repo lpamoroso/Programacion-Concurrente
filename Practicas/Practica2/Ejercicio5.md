@@ -22,8 +22,8 @@ Process Alumno[i=1..50](){
   P(mutex_cantidad);
   cant++;
   if(cant == 50){
-    for(i = 1; i <= 49; i++){
-      V(barrier_alumno[i]);
+    for( = 1; j <= 49; j++){
+      V(barrier_alumno[j]);
     }
   }
   else{
