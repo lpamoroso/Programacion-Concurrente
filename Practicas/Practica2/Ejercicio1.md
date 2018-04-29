@@ -10,7 +10,7 @@ Parte 1
 ------
 ```c
 sem mutex = 1;
-Process Persona(){
+Process Persona[i=1..N](){
   P(mutex);
   //La persona pasa por el detector
   V(mutex);
@@ -20,7 +20,7 @@ Parte 2
 ------
 ```c
 sem mutex = 3;
-Process Persona(){
+Process Persona[i=1..N](){
   P(mutex);
   //La persona pasa por el detector
   V(mutex);
