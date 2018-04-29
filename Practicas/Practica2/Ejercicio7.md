@@ -49,7 +49,7 @@ Process empleado(){
       estado[id] = "Atendido"
       V(mutex_estado);
       //Atender cliente
-      V(barrier_atencion[i]);
+      V(barrier_atencion[id]);
       P(mutex_estado);
     }
     V(mutex_estado);
