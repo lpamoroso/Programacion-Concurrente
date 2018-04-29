@@ -8,6 +8,7 @@ Solución
 queue recursos;
 sem mutex_queue_instances = 1;
 int queue_instances = 5;
+
 Process process[i=1..N](){
   Recurso recurso;
   P(mutex_queue_instances);
