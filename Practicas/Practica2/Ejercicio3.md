@@ -9,6 +9,7 @@ Solución
 sem mutex_lugar = 7;
 sem mutex_lugar_trigo = 5;
 sem mutex_lugar_maiz = 5;
+
 process camion_trigo[i=1..T](){
   P(mutex_lugar_trigo);
   P(mutex_lugar);
@@ -16,6 +17,7 @@ process camion_trigo[i=1..T](){
   V(mutex_lugar_trigo);
   V(mutex_lugar);
 }
+
 process camion_maiz[i=1..M](){
   P(mutex_lugar_maiz);
   P(mutex_lugar);
