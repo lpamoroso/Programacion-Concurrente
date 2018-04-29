@@ -18,11 +18,12 @@ int id;
 int cant = 0;
 
 Process Alumno[i=1..50](){
+  int j;
   tareas[i] = elegir_tarea();
   P(mutex_cantidad);
   cant++;
   if(cant == 50){
-    for( = 1; j <= 49; j++){
+    for(j = 1; j <= 49; j++){
       V(barrier_alumno[j]);
     }
   }
