@@ -15,6 +15,7 @@ int contador[10] = ([10], 0);
 int notas[10];
 int tareas[50];
 int id;
+int cant = 0;
 
 Process Alumno[i=1..50](){
   tareas[i] = elegir_tarea();
