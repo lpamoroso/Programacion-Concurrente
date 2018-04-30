@@ -15,6 +15,7 @@ Monitor Maquina(int id){
   cond cola[100];
   priority_queue clientes;
   bool busy = false;
+  
   procedure pedir(){
     if(busy){
       clientes.push(id);
@@ -22,6 +23,7 @@ Monitor Maquina(int id){
     }
     busy = true;
   }
+  
   procedure dejar(){
     int next;
     busy = false;
