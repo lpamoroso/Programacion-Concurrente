@@ -1,4 +1,3 @@
-Programación Concurrente: todo lo que aprendí(y mas xD).
+Concu: data util para parcialitos y parciales.
 ======
-La idea es tratar de subir todo lo de Programación Concurrente que yo considere que me ayudo a aprobar esto cosa. Punto.
-Saludos, Lihuel.
+Este repositorio contiene las prácticas que voy resolviendo y resúmenes teoricos de Concu.
