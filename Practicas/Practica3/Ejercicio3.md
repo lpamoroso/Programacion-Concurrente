@@ -6,7 +6,7 @@ Solución
 ------
 ```c
 process persona[i=1..N](){
-  Banco.esperar(i);
+  Banco.encolar(i);
   Admin_Persona[i].set(i);
 }
 
