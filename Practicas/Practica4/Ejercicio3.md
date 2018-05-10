@@ -1,4 +1,4 @@
-#Ejercicio 3
+# Ejercicio 3
 
 En un edificio existen 3 porteros y P personas. Las personas dejan reclamos en la oficina de los porteros que deben ser atendidos por cualquiera de ellos. Cada portero está continuamente trabajando, si hay algún reclamo pendiente lo atiende, sino realiza un recorrido por los pisos durante 10 minutos.
 
