@@ -5,6 +5,10 @@ Los pedidos que hacen los clientes son tomados por cualquiera de los vendedores 
 Nota: maximizar la concurrencia.
 
 ```c++
+chan request_dejar_pedido(int id_cliente, Pedido pedido);
+chan response_cocinar_pedido[C](Pedido pedido);
+chan request_cocinar_pedido(int id_cliente, Pedido pedido);
+
 process cliente[id_cliente=1..C](){
   Pedido pedido;
   pedido = generar_pedido();
