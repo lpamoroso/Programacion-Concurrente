@@ -5,6 +5,8 @@ Supongamos que tenemos una abuela que tiene dos tipos de lápices para dibujar: 
 2. Modificar el ejercicio para que a los niños de tipo A se les puede asignar un lápiz sólo cuando: hay lápiz negro disponible y ningún pedido pendiente de tipo N, o si hay lápiz de color disponible y ningún pedido pendiente de tipo C.
 NOTA: se deben modelar los procesos niño y el proceso abuela.
 
+## Solución
+
 1.
 ```c++
 chan request_nieto_color(int id);
