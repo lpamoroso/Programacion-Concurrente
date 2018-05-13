@@ -3,7 +3,7 @@
 Se desea modelar el funcionamiento de un banco en el cual existen 5 cajas para realizar pagos. Existen P personas que desean pagar. Para esto cada una selecciona la caja donde hay menos personas esperando, una vez seleccionada espera a ser atendido.
 NOTA: maximizando la concurrencia.
 
-```c
+```c++
 chan request_atencion[5](int id);
 chan response_atencion[P]();
 chan request_elegir_caja[P](int id);
