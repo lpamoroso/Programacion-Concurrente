@@ -8,6 +8,9 @@ Notas:
 * NO se puede suponer ningún orden en la llegada de los corredores al punto de partida.
 
 ```c++
+chan pass_the_baton(int cant);
+chan request_gates();
+chan response_gates[C]();
 
 process corredor[id_corredor= 1..C](){
   int cant;
