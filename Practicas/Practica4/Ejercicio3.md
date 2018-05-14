@@ -4,7 +4,8 @@ En un edificio existen 3 porteros y P personas. Las personas dejan reclamos en l
 
 ```c++
 chan request_reclamo(String reclamo);
-chan response_reclamo(String reclamo);
+canh pedir_reclamo(int id);
+chan response_reclamo[3](String reclamo);
 
 process persona[id_persona=1..P](){
   String reclamo;
@@ -13,23 +14,33 @@ process persona[id_persona=1..P](){
 }
 
 process buzon(){
-  String reclamo;
+  String reclamo; queue cola; int id;
   while(true){
   if(!empty(dejar_reclamo))-->
     receive request_reclamo(reclamo);
-    send response_reclamo(reclamo);
+    cola.push(reclamo);
+  [](!empty(pedir_reclamo))-->
+    receive pedir_reclamo(id);
+    send response_reclamo[id](cola.pop());
   }
+  [](empty(pedir_reclamo))-->
+    receive pedir_reclamo(id);
+    send response_reclamo[id](-1);
+  end if
 }
 
 process portero[id_portero=1..3](){
   String reclamo;
   while(true){
-    if(!empty(response_reclamo))-->
+    send pedir_reclamo(id_portero);
+    receive response_reclamo[id_portero](reclamo);
+    if(reclamo == -1){
+      delay(10);
+    }
+    else{
       receive request_reclamo(reclamo);
       atender_reclamo(reclamo);
-    [](empty(request_reclamo))-->
-      delay(10);
-    end if
+    }
   }
 }
 ```
