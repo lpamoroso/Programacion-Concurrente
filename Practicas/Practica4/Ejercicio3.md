@@ -16,15 +16,11 @@ process persona[id_persona=1..P](){
 process buzon(){
   String reclamo; queue cola; int id;
   while(true){
-  if(!empty(dejar_reclamo))-->
-    receive request_reclamo(reclamo);
-    cola.push(reclamo);
-  [](!empty(pedir_reclamo))-->
-    receive pedir_reclamo(id);
-    send response_reclamo[id](cola.pop());
-  }
-  [](empty(pedir_reclamo))-->
-    receive pedir_reclamo(id);
+   receive pedir_reclamo(id);
+  if(!empty(request_reclamo))-->
+    receive request_reclamo(reclamo); 
+    send response_reclamo[id](reclamo);
+  [](empty(request_reclamo))-->
     send response_reclamo[id](-1);
   end if
 }
