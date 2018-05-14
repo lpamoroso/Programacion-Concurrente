@@ -99,7 +99,7 @@ process abuela(){
   []()nieto_color[*]?devolver_lapiz(lapiz)-->
     if(!empty(cola_colores))-->
       nieto_color!response_color[cola_colores.pop()](lapiz);
-    [](!empty(cola_cualquiera))-->
+    [](!empty(cola_cualquiera) && empty(cola_colores))-->
       nieto_cualquiera!response_cualquiera[cola_cualquiera.pop()](lapiz);
     []()-->
       color++;
@@ -107,7 +107,7 @@ process abuela(){
   []()nieto_negro[*]?devolver_lapiz(lapiz)-->
     if(!empty(cola_negros))-->
       nieto_negro!response_negro[cola_negros.pop()](lapiz);
-    [](!empty(cola_cualquiera))-->
+    [](!empty(cola_cualquiera) && empty(cola_negros))-->
       nieto_cualquiera!response_cualquiera[cola_cualquiera.pop()](lapiz);
     []()-->
       negro++;
