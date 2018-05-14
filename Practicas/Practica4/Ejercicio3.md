@@ -38,7 +38,6 @@ process portero[id_portero=1..3](){
       delay(10);
     }
     else{
-      receive request_reclamo(reclamo);
       atender_reclamo(reclamo);
     }
   }
