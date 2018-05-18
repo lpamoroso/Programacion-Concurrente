@@ -4,7 +4,7 @@ En un edificio existen 3 porteros y P personas. Las personas dejan reclamos en l
 
 ```c++
 chan request_reclamo(String reclamo);
-canh pedir_reclamo(int id);
+chan pedir_reclamo(int id);
 chan response_reclamo[3](String reclamo);
 
 process persona[id_persona=1..P](){
