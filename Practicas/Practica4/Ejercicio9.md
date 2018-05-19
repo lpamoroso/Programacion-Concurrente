@@ -12,9 +12,9 @@ process cliente[id_cliente=1..C](){
 process ticket_dispenser(){
   queue cola; int id_cliente; Pedido pedido;
   while(true){
-    empleado[*]?quiero_cliente(id_empleado);
-    cliente[*]?encolar(pedido, id_cliente);
-    empleado[id_empleado]!toma_cliente(pedido, id_cliente);
+		if();cliente[*]?encolar(pedido, id_cliente) --> cola.push(pedido, id_cliente);
+		[](!cola.empty());empleado[*]?quiero_cliente(id_empleado) --> empleado[id_empleado]!toma_cliente(pedido, id_cliente);
+		end if
   }
 }
 
