@@ -13,7 +13,9 @@ process ticket_dispenser(){
   queue cola; int id_cliente; Pedido pedido;
   while(true){
     if();cliente[*]?encolar(pedido, id_cliente) --> cola.push(pedido, id_cliente);
-    [](!cola.empty());empleado[*]?quiero_cliente(id_empleado) --> empleado[id_empleado]!toma_cliente(pedido, id_cliente);
+    [](!cola.empty());empleado[*]?quiero_cliente(id_empleado) -->
+      cola.pop(pedido, id_cliente);
+      empleado[id_empleado]!toma_cliente(pedido, id_cliente));
     end if
   }
 }
