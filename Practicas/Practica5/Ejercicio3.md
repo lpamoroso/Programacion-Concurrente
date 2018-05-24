@@ -1,4 +1,4 @@
-# Ejercicio 3
+# Ejercicio 3(Corregido)
 
 Se debe modelar un buscador para contar la cantidad de veces que aparece un número dentro de un vector distribuido entre las N tareas contador. Además existe un administrador que decide el número que se desea buscar y se lo envía a los N contadores para que lo busquen en la parte del vector que poseen.
 
