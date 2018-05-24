@@ -1,4 +1,4 @@
-# Ejercicio 4
+# Ejercicio 4(Corregido)
 
 Se debe controlar el acceso a una base de datos. Existen A procesos de Tipo 1, B procesos de Tipo 2 y C procesos de Tipo 3 que trabajan indefinidamente de la siguiente manera:
 
@@ -73,10 +73,6 @@ TASK BODY DATABASE IS
   OR
     WHEN(CANT_LECTORES == 0)ACCEPT ESCRIBIR();
       ACCEPT FIN_ESCRIBIR();
-      FOR 1 TO LEER'COUNT LOOP
-        ACCEPT LEER();
-        CANT_LECTORES := CANT_LECTORES + 1;
-      END LOOP;
     END ESCRIBIR;
   END SELECT;
 END DATABASE;
