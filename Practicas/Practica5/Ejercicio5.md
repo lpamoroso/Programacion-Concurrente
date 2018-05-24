@@ -1,4 +1,4 @@
-# Ejercicio 5
+# Ejercicio 5(Corregido)
 
 En una clínica existe un médico de guardia que recibe continuamente peticiones de atención de las E enfermeras que trabajan en su piso y de las P personas que llegan a la clínica ser atendidos.  
 Cuando una persona necesita que la atiendan espera a lo sumo 5 minutos a que el médico lo haga, si pasado ese tiempo no lo hace, espera 10 minutos y vuelve a requerir la atención del médico. Si no es atendida tres veces, se enoja y se retira de la clínica.
@@ -22,7 +22,8 @@ END ESCRITORIO;
 
 TASK BODY PACIENTE IS
   ATENDIDO : BOOLEAN := FALSE;
-  FOR 1 TO 3 LOOP
+  VUELTAS : INTEGER := 0;
+  WHILE(!ATENDIDO && VUELTAS < 3) LOOP
     SELECT
       MEDICO.ATENDER();
       ATENDIDO := TRUE;
@@ -65,7 +66,7 @@ TASK MEDICO IS
     WHEN (ATENDER'COUNT == 0) => ACCEPT REQUERIR_ATENCION();
   ELSE
     SELECT
-      ESCRITORIO.TOMAR_NOTA()
+      ESCRITORIO.TOMAR_NOTA();
     ELSE
     END SELECT
   END SELECT;
