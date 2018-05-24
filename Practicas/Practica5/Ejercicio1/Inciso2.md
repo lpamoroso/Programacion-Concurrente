@@ -1,4 +1,4 @@
-# Inciso 2
+# Inciso 2(Corregido)
 
 ```ada
 TASK TYPE AUTO;
