@@ -1,4 +1,4 @@
-# Ejercicio 2
+# Ejercicio 2(Corregido)
 
 Se quiere modelar la cola de un banco que atiende un solo empleado, los clientes llegan y si esperan más de 10 minutos se retiran.
 
