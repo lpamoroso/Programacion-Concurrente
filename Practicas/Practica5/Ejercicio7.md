@@ -1,4 +1,4 @@
-# Ejercicio 7
+# Ejercicio 7(Corregido)
 
 Hay una empresa de servicios que tiene un Recepcionista, N Clientes que hacen reclamos y E Empleados que los resuelven. Cada vez que un cliente debe hacer un reclamo, espera a que el Recepcionista lo atienda y le dé un Número de Reclamo, y luego continúa trabajando. Los empleados cuando están libres le piden un reclamo para resolver al Recepcionista y lo resuelven. El Recepcionista recibe los reclamos de los clientes y les entrega el Número de Reclamo, o bien atiende los pedidos de más trabajo de los Empleados (cuando hay reclamos sin resolver le entrega uno al empleado para que trabaje); siempre le debe dar prioridad a los pedidos de los Empleados.  
 ***Nota**:* los clientes, empleados y recepcionista trabajan infinitamente.
