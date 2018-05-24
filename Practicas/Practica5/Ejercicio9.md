@@ -52,12 +52,12 @@ TASK BODY EMPRESA
             MAX := CONTADORES[I];
             CUR_ID := I;
           END IF;
-          IF(!COLAS[I].EMPTY()) THEN
-            RECLAMO := COLA[I].POP();
-          ELSE
-            RECLAMO := -1;
-          END IF;
-        END LOOP
+        END LOOP;
+        IF(!COLAS[I].EMPTY()) THEN
+          RECLAMO := COLA[I].POP();
+        ELSE
+          RECLAMO := -1;
+        END IF;
       END TOMAR_RECLAMO;
     END SELECT;
   END LOOP;
