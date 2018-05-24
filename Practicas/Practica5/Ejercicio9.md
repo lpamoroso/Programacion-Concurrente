@@ -55,6 +55,7 @@ TASK BODY EMPRESA
         END LOOP;
         IF(!COLAS[I].EMPTY()) THEN
           RECLAMO := COLA[I].POP();
+          CONTADORES[I] := CONTADORES[I] - 1;
         ELSE
           RECLAMO := -1;
         END IF;
