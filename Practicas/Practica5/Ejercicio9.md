@@ -58,7 +58,6 @@ TASK BODY EMPRESA
             RECLAMO := -1;
           END IF;
         END LOOP
-        RECLAMO := COLA.POP();
       END TOMAR_RECLAMO;
     END SELECT;
   END LOOP;
