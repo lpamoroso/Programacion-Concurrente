@@ -1,4 +1,4 @@
-# Ejercicio 6
+# Ejercicio 6(Corregido)
 
 Hay un sistema web para reservas de pasajes de micro donde existen N Clientes que solicitan un pasaje para un cierto destino; espera hasta que el servidor le indique el número de asiento reservado (-1 si no hubiese disponibles); y luego (si había asiento disponible) el cliente imprime su pasaje. El servidor atiende los pedidos de acuerdo al orden de llegada, cuando un cliente le solicita un pasaje a un cierto destino, busca un asiento disponible para ese destino y luego le indica a ese cliente el asiento reservado (o -1 si no hubiese ninguno disponible).
 
