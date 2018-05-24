@@ -1,4 +1,4 @@
-# Ejercicio 8
+# Ejercicio 8(Corregido)
 
 En una empresa hay 5 controladores de temperatura y una Central. Cada controlador toma la temperatura del ambiente cada 10 minutos y se la envía a una central para que analice el dato y le indique que hacer. Cuando la central recibe una temperatura que es mayor de 40 grados, detiene a ese controlador durante 1 hora.
 
@@ -17,6 +17,7 @@ TASK BODY CONTROLLER IS
     IF(CODE){
       DELAY(60*60);
     }
+    DELAY(10*60);
   END LOOP;
 END CONTROLLER;
 
