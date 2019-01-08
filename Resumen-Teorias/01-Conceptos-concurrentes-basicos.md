@@ -27,7 +27,7 @@ Hay dos razones:
 * ***Mejor utilización de la CPU*** de cada procesador.
 * Explotación de la ***concurrencia inherente*** a la mayoría de ***problemas reales***, con lo que ello implica.
 
-//cOMPLETAR COSO HARDWARE
+//COMPLETAR COSO HARDWARE
 
 6. ¿Cómo se podría comportar un proceso?
 
