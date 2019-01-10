@@ -3,9 +3,9 @@
 1. ¿Qué propiedades existen?
 
 Hay tres propiedades:
-1. Seguridad
-2. Vida
-3. *Fairness*
+1. Seguridad.
+2. Vida.
+3. *Fairness*.
 
 La propiedad de ***seguridad*** garantiza estados concurrentes. Una **falla de seguridad** indica que algo anda mal, es decir, interferencias entre procesos, por ejemplo.  
 La propiedad de ***vida*** garantiza que, eventualmente, una activdad progresa. Una ***falla de vida*** indica que el programa se ha detenido y no progresa. En estos casos, el problema suele ser que hay algo que no se está asegurando, ya sea que un mensaje llegare a destino o que un proceso eventualmente alcanzare su sección crítica.  

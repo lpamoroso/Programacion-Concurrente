@@ -4,8 +4,8 @@
 
 Hay dos tipos:
 
-* De grano fino
-* De grano grueso
+* De grano fino.
+* De grano grueso.
 
 Una acción atómica ***de grano fino*** es aquella que debe ser implementada por hardware.  
 Sin embargo, dado que los programas concurrentes no suelen ser disjuntos, podemos caer en la ya debatida **interferencia** ya que una o varias variables podrían tornarse ***referencias críticas***, es decir, podrían ser modificadas por otro proceso. Esto es algo que no puede tolerarse por las inconsistencias que pudiere producir. Para evitar esta interferencia es que en un programa concurrente debe respetarse la propiedad ***a lo sumo una vez***(ASV).  
