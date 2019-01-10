@@ -6,7 +6,7 @@ Si bien el número de aplicaciones de la programación concurrente es muy grande
 * Paralelismo iterativo.
 * Paralelismo recursivo.
 * Productores y consumidores.
-* Cliente y servidor.s
+* Cliente y servidores
 * Pares que interactúan.
 
 En el ***paralelismo iterativo***, un programa consta de un conjunto de procesos(posiblemente idénticos) cada uno de los cuales tiene uno o más *loops*. Cada procesos es un programa idéntico. Este paradigma es usualmente utilizado cuando se requiere cooperación entre los procesos(que bien pueden trabajar el uno independiente del otro) y comunicación y sincronización entre ellos para resolver un único problema.  
