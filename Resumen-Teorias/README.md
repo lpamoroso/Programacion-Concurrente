@@ -13,3 +13,4 @@
 - Los problemas que este algoritmo tiene, *a priori* son los mismos que en el algoritmo *ticket* ya que, dado que en cada corrida el contador debe ser reseteado a 0 puede haber contención de memoria o incoherencias en la cache. //EL ALGORITMO TICKET TAMBIEN TIENE INCONSISTENCIAS EN LA CACHE Y PROBLEMAS EN LA CONTENCION DE MEMORIA???
 - 1. Requerir un proceso(y, por ende, un procesador) extra. //CONSULTAR SI ESTA BIEN
 - A LO ULTIMO HABLA DE DEFECTOS DE BUSY WAITING... EL BUSY WAITING ES INHERENTE A TODOS LOS ALGORITMOS??
+- Semaforo binario dividido es un especie de butterfly barrier?? //NECESITO AYUDA PARA EXPLICARLO BIEN.
