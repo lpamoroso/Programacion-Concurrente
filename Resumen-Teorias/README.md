@@ -14,3 +14,4 @@
 - 1. Requerir un proceso(y, por ende, un procesador) extra. //CONSULTAR SI ESTA BIEN
 - A LO ULTIMO HABLA DE DEFECTOS DE BUSY WAITING... EL BUSY WAITING ES INHERENTE A TODOS LOS ALGORITMOS??
 - Semaforo binario dividido es un especie de butterfly barrier?? //NECESITO AYUDA PARA EXPLICARLO BIEN.
+- No es un TAD dado que es compartido por procesos que ejecutan concurrentemente //ESTA BIEN ACRCA DE LOS MONITORES??
