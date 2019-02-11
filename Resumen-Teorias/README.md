@@ -17,3 +17,9 @@
 - No es un TAD dado que es compartido por procesos que ejecutan concurrentemente //ESTA BIEN ACERCA DE LOS MONITORES??
 - PREGUNTAR SI ENTRA MPI(BIBLIOTECAS PARA MANEJO DE PM) Y CSP(LENGUAJE PARA PMS).
 - NO ENTIENDO ESTO: Por sí mismo, RPC es solo un mecanismo de comunicación.
+- PREGUNTAR SI TENGO QUE RESUMIR ADA.
+- PREGUNTAR SI DEBERÍA RESUMIR ALGO DE NOTACIÓN DE PRIMITIVAS MÚLTIPLES Y PREGUNTA QUÉ ES Y PARA QUÉ SIRVE.
+- Un programa paralelo puede escribirse usando VC... QUE ES VC??
+- Pero puede darse un enfoque metódico para maximizar el rango de opciones consideradas, brindar mecanismos para evaluar las alternativas, y reducir el costo de backtracking por malas elecciones ⇒ metodología de diseño que da un enfoque exploratorio en el cual aspectos independientes de la máquina tales como la concurrencia son considerados temprano, y los aspectos específicos de la máquina se demoran. PEDIR EXPLICACIÓN
+- Pedir explicación y ejemplos de speedup y eficiencia
+- El grado de concurrencia(o paralelismo) es el número máximo de tareas que pueden ejecutarse simultáneamente en cualquier momento del algoritmo paralelo. Para un tamaño de problema dado, el algoritmo paralelo no puede usar tantos procesadores como su paralelismo lo indique PREGUNTAR SI ESTÁ BIEN DICHO.
