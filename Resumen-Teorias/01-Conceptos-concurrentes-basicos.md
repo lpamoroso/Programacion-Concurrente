@@ -100,8 +100,8 @@ El tiempo absoluto no suele ser un factor clave en la mayoría de los sistemas. 
 15. ¿Qué es la granularidad y prioridad?
 
 * Granularidad: está dada por la relación entre el cómputo y la comunicación. Está relacionada y se adapta a la arquitectura. Hay dos tipos:
-    + Grano fino: //FALTA EXPLICAR
-    + Grano grueso: //FALTA EXPLICAR
+    + Grano fino: cuando existen muchas comunicaciones y poco cálculo. Esto es, muchos procesadores pero con poca capacidad de cálculo, por lo que son mejores para programas que requieren más comunicaciones, es decir, aquellos que poseen más *tasks*.
+    + Grano grueso: cuando existen pocas comunicaciones y mucho cálculo. Esto significa que se tienen pocos procesadores muy potentes, mu útiles para programas de mucho procesamiento y poca comunicación.
 
 * Prioridad: es decir, cuál proceso se ejecuta primero y cuál después. Ésta puede provocar la suspensión de otro proceso concurrente. Del mismo modo, puede tomar un recurso compartido, obligando a retirarse a otro proceso que lo tenga en un instante dado.
 

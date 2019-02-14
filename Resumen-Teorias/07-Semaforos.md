@@ -25,19 +25,23 @@ La estructura del ***semáforo binario dividido*** puede verse como *n* semáfor
 
 Si los procesos compiten por recursos de multiples unidades, entonces es mejor usar ***contadores de recursos***. La idea es que cada semáforo cuente el número de unidades libres de un recurso determinado. Si lo vemos como un *buffer*(una cola de mensajes depositados y aun no buscados), existe un productor y un consumidor que depositan y retiran elementos del *buffer*. Dado que solo hay un productor y un consumidor, las operaciones de depósito y retirado pueden asumirse como atómicas. Si hubiera más de un productor y/o consumidor, entonces debe protegerse cada *slot* del *buffer* ya que podríase retirar dos veces el mismo dato o perderse otros datos por sobreescritura.
 
+## Exclusión mutua selectiva
+
+1. ¿Qué es?
+
+Es una característica presente en aquellos problemas en los que cada proceso compite por sus recursos no con todos los demás procesos, sino con un subconjunto de ellos. Los procesos pueden competir por los recursos según el tipo de proceso o la proximidad, entre otras cosas.
+
 ### Exclusión mutua selectiva aplicada al problema de los filósofos
 
-Si, en cambio, estamos ante un problema de varios procesos y varios recursos, cada uno protegido por un *lock*, estamos ante una situación de ***exclusión mutua selectiva***. Para que un proceso se ejecute, antes debe adquirir los *locks* de los recursos que requiera. Cuando varios procesos compiten por conjuntos superpuestos de recursos, puede caerse en *deadlock* por lo que este problema debe manejarse con cautela.  
+Si estamos ante un problema de varios procesos, en los que éstos compiten por un subconjunto de procesos, estamos ante una situación de ***exclusión mutua selectiva***. En este caso, para que un proceso se ejecute, antes debe adquirir los *locks* de los recursos adyacentes a el(de ahí que sea exclusión mutua selectiva). Cuando varios procesos compiten por conjuntos superpuestos de recursos, puede caerse en *deadlock* por lo que este problema debe manejarse con cautela.  
 Desmenuzando el problema de los filósofos podemos plantear que:
 * Cada tenedor es una sección crítica, y como tal, puede ser tomada por un único filósofo a la vez.
 * Levantar un tenedor representa a *P*; dejarlo en la mesa, a *V*.
 * Cada filósofo necesita el tenedor izquierdo y derecho.
 
-// NECESITO EXPLICACIÓN DEL PROBLEMA DE LOS FILÓSOFOS.
-
 ### Lectores y escritores usando exclusión mutua selectiva
 
-El problema consiste en una base de datos que es usada por lectores y escritores. Los lectores pueden ejecutar concurrentemente entre ellos si no hay escritores actualizando. El acceso de los escritores, por otro lado, debe ser exclusivo para evitar interferencia entre transacciones.
+El problema consiste en una base de datos que es usada por lectores y escritores. Los lectores pueden ejecutar concurrentemente entre ellos si no hay escritores actualizando. El acceso de los escritores, por otro lado, debe ser exclusivo para evitar interferencia entre transacciones. De nuevo, es un problema de exclusión mutua selectiva porque los procesos(lectores) compiten con un subconjunto de procesos(escritores) por un recurso(la base de datos). Si hubiera un solo lector y escritor, sería solo un problema de exclusión mutua(no puede haber un lector y un escritor simultáneamente en la base de datos) pero no un problema de exclusión mutua selectiva porque no se da el caso de que hay un subconjunto con el que no se compite(se está compitiendo con todos los conjuntos, en este caso, los escritores. Antes no se competía con los lectores. Ahora solo hay un lector, por lo que no se da esa característica que antes se daba.)
 *A priori*, hay dos cuestiones a plantear:
 * Los escritores necesitan acceso mutuamente exclusivo.
 * Los lectores(como grupo) necesitan acceso exclusivo con respecto a cualquier escritor.
