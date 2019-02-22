@@ -32,30 +32,6 @@ Todos esos algoritmos utilizan busy waiting.
 
 No.
 
-- No es un TAD dado que es compartido por procesos que ejecutan concurrentemente //ESTA BIEN ACERCA DE LOS MONITORES??
-
-Esta bien.
-
-- PREGUNTAR SI ENTRA MPI(BIBLIOTECAS PARA MANEJO DE PM) Y CSP(LENGUAJE PARA PMS).
-
-Podria entrar como funciona la comunicacion guardada. De MPI no suele haber nada.
-
-- NO ENTIENDO ESTO: Por sí mismo, RPC es solo un mecanismo de comunicación.
-
-Lo unico que permite es que se comunique es la comunicacion. Las variables entre los modulos pueden pisarse.
-
-- PREGUNTAR SI TENGO QUE RESUMIR ADA.
-
-Si esta biuen algun concepto.
-
-- Un programa paralelo puede escribirse usando VC... QUE ES VC??
-
-Variables compartidas.
-
-- Pedir explicación y ejemplos de speedup y eficiencia
-
-- El grado de concurrencia(o paralelismo) es el número máximo de tareas que pueden ejecutarse simultáneamente en algun momento del algoritmo paralelo. Para un tamaño de problema dado, el algoritmo paralelo no puede usar tantos procesadores como su paralelismo lo indique
-
 ----------------------------------------------------------------------------------
 
 - ## Algoritmo broadcast
@@ -82,3 +58,52 @@ Si se decide resolver el problema de manera distribuída, entonces existen 5 moz
 Notar que este problema deja de ser de exclusión mutua selectiva en cualquiera de las variantes ya que desaparece la competencia por el subconjunto de procesos: ahora compite con todos por el acceso a los recursos a través del mozo.// ESTA BIEN??
 
 - REVISAR 05. ASEGURARSE QUE TODO SEA CORRECTO.
+
+- 3. ¿Por qué semáforos es mejor que busy waiting?
+
+Porque hace que no se consuma tiempo de procesamiento hasta que no se tenga posibilidad de ejecución. Busy waiting es ineficiente cuando los procesos son implementados por multiprogramación ya que mantendrá ocupado un procesador realizando spinning cuando este podría ser usado por otro proceso. Otro tema que también resuelve es la complejidad que conlleva diseñar o prbar un algoritmo de tipo busy waiting: la mayoría de los protocolos son complejos y no hay una clara separación entre las variables usadas para sincronización y aquellas para comparar resultados. //ESTA BIEN??
+
+- Rendezvous propone un encuentro e intercambio entre dos procesos(algo así como una cita). La idea es que un proceso que espere su invocación(espere a que un proceso venga al encuentro). Cuando otro proceso lo invoque(acuda al encuentro), es ahí cuando el proceso se bloquea y garantiza la simetría entre dos procesos. //ESTA BIEN??
+
+problema de los baños
+criba de erastotenes
+9)Sea el problema en el cual N procesos poseen inicialmente cada uno un valor V, y el objetivo es que todos conozcan cuál es el máximo y cuál es el mínimo de todos los valores. a) Plantee conceptualmente posibles soluciones con las siguientes arquitecturas de red: centralizada, simétrica (o totalmente conectada) y anillo circular (NO IMPLEMENTE). b) Analice las soluciones desde el punto de vista del número de mensajes y la perfomance global del sistema.
+10) Defina el concepto de granularidad. ¿Qué relación existe entre la granularidad de programas y de procesadores?
+
+11) Dado el siguiente programa concurrente con memoria compartida, y suponiendo que todas las variables están inicializadas en 0 al empezar el programa y las instrucciones NO son atómicas. Para cada una de las opciónes indique verdadero o falso. En caso de ser verdadero indique el camino de ejecución para llegar a ese valor, y en caso de ser falso justifique claramente su respuesta. 
+P1:: 
+if(x = 0) then    
+    y:= 4*x + 2;   
+    x:= y + 2 + x; 
+P2:: 
+if (x > 0 ) then    
+    x:= x + 1;
+P3:: 
+x:= x*8 + x*2 + 1;
+
+a) El valor de x al terminar el programa es 9.
+b) El valor de x al terminar el programa es 6.
+c) El valor de x al terminar el programa es 11.
+d) Y siempre termina con alguno de los siguientes valores: 10 o 6 o 2 o 0.
+
+ Describa brevemente los mecanismos de comunicación y de sincronización provistos por MPI, Linda y Java.
+
+16) Suponga que quiere ordenar n números enteros utilizando mensajes con el siguiente algoritmos (odd/even exchange sort). Hay n procesos P[1:n], con n par. Cada proceso ejecuta una serie de rondas. En las rondas “impares”, los procesos con número impar  P[impar] intercambian valores con P[impar+1] si los números están desordenados. En las rondas “pares”, los procesos con número par P[par] intercambian valores con P[par+1] si los números están desordenados (P[1] y P[n] no hacen nada en las rondas “pares”). a) Determine cuántas rondas deben ejecutarse en el peor caso para ordenar n números. N
+b) ¿Considere que para este caso es más adecuado utilizar mensajes sincrónicos o asincrónicos? Justifique. Mejor PMS porque asincrónico es innecesario mantener las colas de PMA c) Escriba un algoritmo paralelo para odenar un arreglo a[1:n] en forma ascendente. ¿Cuántos mensajes se utilizan?
+d) ¿Cómo modificaría el algoritmo del punto c) para que termine tan rápido como el arreglo esté ordenado (por ej, podría estar ordenado inicialmente)? ¿Esto agrega overhead de mensajes? ¿Cuanto?
+e) Modifique la respuesta dada en c) para usar k procesos (asuma que n es múltiplo de k).
+
+
+ Explica los problemas que pueden surgir en el anidamiento de llamadas a monitores
+25.	¿Qué elementos de la forma general de Rendezvous no se encuentran en el lenguaje ADA?
+
+* La expresion de scheduler.
+* En Ada no se pueden ver los parametros hasta no haber aceptado
+
+34.	Defina el concepto de “continuidad conversacional” entre procesos.
+
+26.	Describa los mecanismos de comunicación y sincronización provistos por MPI, Ada, Java y Linda
+
+51.	Analice las arquitecturas multiprocesador, vector processor, array processor, data flow y transputer. Relaciónelos con los tipos de problemas que son más adecuados para resolver en cada una de ellas.
+
+52.	¿Qué es una lógica de programación y cuáles son sus componentes? ¿Qué es un invariante?
