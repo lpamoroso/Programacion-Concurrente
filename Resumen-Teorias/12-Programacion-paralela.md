@@ -2,13 +2,13 @@
 
 1. ¿Qué es un programa paralelo?
 
-Es un programa concurrente escrito para resolver un problema en menos tiempo que el secuencial. El objetivo principal es reducir el tiempo de ejecución, o resolver problemas más grandes o con mayor precisión en el mismo tiempo. Un programa paralelo puede escribirse usando memeoria compartida o pasaje de mensajes.
+Es un programa concurrente escrito para resolver un problema en menos tiempo que el secuencial. El objetivo principal es reducir el tiempo de ejecución, o resolver problemas más grandes o con mayor precisión en el mismo tiempo. Un programa paralelo puede escribirse usando variables compartidas o pasaje de mensajes.
 
 2. ¿Qué extras trae consigo el paralelismo?
 
 Existen dos modos tradicionales de descubrimiento científico: la teoría y la experimentación. Con el paralelismo surge un tercer modo que es la modelización computacional, es decir, utilizar computadoras para simular fenómenos del tipo "what if". Dentro de la modelización computacional existen tres técnicas:
 * Computación de grillas: dividen una región espacial en un conjunto de puntos. El procesamiento de imágenes es un ejemplo de esto.
-* Computación de partículas: modelos que simulan interaccciones de partículas individuales como moléculas u objetos estelares.
+* Computación de partículas: modelos que simulan interacciones de partículas individuales como moléculas u objetos estelares.
 * Computación de matrices: sistemas de ecuaciones simultáneas.
 
 3. ¿Cómo diseñar algoritmos paralelos?
@@ -50,7 +50,7 @@ Es el producto entre el tiempo de ejecución paralelo y los procesadores. Reflej
 
 10. ¿Qué es el grado de concurrencia?
 
-El grado de concurrencia(o paralelismo) es el número máximo de tareas que pueden ejecutarse simultáneamente en cualquier momento del algoritmo paralelo. Para un tamaño de problema dado, el algoritmo paralelo no puede usar tantos procesadores como su paralelismo lo indique. El grado de concurrencia depende solo del algoritmo, no de la arquitectura.
+El grado de concurrencia(o paralelismo) es el número máximo de tareas que pueden ejecutarse simultáneamente en algún momento del algoritmo paralelo. Para un tamaño de problema dado, el algoritmo paralelo no puede usar tantos procesadores como su paralelismo lo indique. El grado de concurrencia depende solo del algoritmo, no de la arquitectura.
 
 11. ¿Qué es la granularidad?
 

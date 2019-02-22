@@ -44,6 +44,10 @@ Hay dos disciplinas de señalización:
 | :---: | :---: |
 | Si hay procesos dormidos, despierta al primero de ellos; caso contrario no hace nada. | Incrementa la variable(el semáforo) en uno para que un proceso dormido o que hará un P continúe. No sigue ningún orden al despertarlos. |
 
+6. ¿Qué es passing the condition? ¿Cómo se relaciona con passing the baton?
+
+En resumidas cuentas, ***passing the condition*** es la alternativa a ***passing the baton*** con semáforos. Lo que provee la técnica es un orden en la ejecución de procesos, es decir, permite determinar qué proceso es quien puede acceder a la sección crítica.
+
 6. Ejemplos
 
 ### Alocacion SJN

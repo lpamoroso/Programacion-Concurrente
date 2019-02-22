@@ -10,3 +10,7 @@ La característica de ***fairness*** garantiza que todos los procesos tengan cha
 2. ¿Es fairness una propiedad de un programa concurrente?
 
 No, es más bien una cualidad deseable. Lo importante a tener en cuenta es que los procesos puedan continuar siempre.
+
+3. ¿En qué se relaciona el fairness con las políticas de schedulling?
+
+Partiendo de que el fairness es el equilibrio en el acceso a recursos compartidos por todos los procesos, y que las políticas de schedulling determinan cúal es la sentencia a ejecutar, la relación está en que el avance de un proceso está dado por la elección de la próxima sentencia atómica que se debe ejecutar, por lo que algunas políticas pueden resultar más o menos fair dependiendo de qué sentencia atómica se ejecuta luego.

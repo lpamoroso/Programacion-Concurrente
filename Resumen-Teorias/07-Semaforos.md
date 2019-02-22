@@ -10,7 +10,11 @@ Es una instancia de un *TAD*(**Tipo abstracto de dato**) con solo dos operacione
 * P: señala la ocurrencia de un evento(incrementa).
 * V: se usa para demorar un proceso hasta que ocurra un evento(decrementa).
 
-3. Problemas básicos y técnicas con semáforos
+3. ¿Por qué semáforos es mejor que busy waiting?
+
+Porque hace que no se consuma tiempo de procesamiento hasta que no se tenga posibilidad de ejecución. Busy waiting es ineficiente cuando los procesos son implementados por multiprogramación ya que mantendrá ocupado un procesador realizando spinning cuando este podría ser usado por otro proceso. Otro tema que también resuelve es la complejidad que conlleva diseñar o prbar un algoritmo de tipo busy waiting: la mayoría de los protocolos son complejos y no hay una clara separación entre las variables usadas para sincronización y aquellas para comparar resultados.
+
+4. Problemas básicos y técnicas con semáforos
 
 ### Barreras como señalizadoras de eventos
 
@@ -51,10 +55,10 @@ Una solución podría ser aquella en la que haya dos semáforos: uno que control
 ### Lectores y escritores usando sincronización por condición
 
 Otro enfoque del problema anterior es que un lector puede acceder a la base de datos siempre y cuando un escritor no esté presente. Esto lo podemos representar fácilmente con un semáforo. El problema lo tenemos en el escritor: la idea es representar que el escritor puede entrar cuando no haya otro escritor y lectores. Esto no lo podemos implementar con un semáforo. Lo que vamos a usar es la técnica ***passing the baton*** para brindar exclusión y despertar procesos demorados usando semáforos binarios divididos. La idea es que cuando un procesos esté dentro de un sección crítica mantenga el batón, es decir, tenga permiso para ejecutarse. Cuando un proceso sale de la sección crítica, pasa el batón a otro proceso. Si se da que nadie está esperando el batón, entonces éste se libera para que lo tome el próximo proceso que trate de entrar.  
-La solución, entonces consistiría en que, siempre que los lectores intentasen ejecutarse, si no hubieran escritores, pudieran hacerlo. Al final, cuando terminasen de ejecutarse, los lectores pasarían el batón, de ser posible, a los escritores, siempre y cuando no hubieren lectores dentro y haya escritores que quisieran escribir. Si hay un escritor ya escribiendo, los lectores son demorados hasta que éste les pase el batón.  
+La solución consistiría en que siempre que los lectores intentasen ejecutarse, si no hubieran escritores, pudieran hacerlo. Al final, cuando terminasen de ejecutarse, los lectores pasarían el batón, de ser posible, a los escritores, siempre y cuando no hubieren lectores dentro y haya escritores que quisieran escribir. Si hay un escritor ya escribiendo, los lectores son demorados hasta que éste les pase el batón.  
 Por su parte, los escritores solo podrán escribir cuando no hubieren lectores ni otros escritores dentro de la base de datos. Si no pudieran escribir, entonces éstos son demorados hasta que se cumplan las condiciones ya mensionadas. Luego de escribir, se intentará pasar el batón a algún lector. De no ser esto posible, el batón será pasado a algún escritor. De ser esto tampoco posible, entonces solo se libera el batón.
 
-3. ¿En qué consiste la alocación de recursos y *scheduling*?
+5. ¿En qué consiste la alocación de recursos y *scheduling*?
 
 Dado que debemos decidir cuándo se le puede dar a un proceso determinado acceso a un recurso, es que es que entonces debemos encontrar alguna forma de implementar ***políticas de alocación de recursos generales*** controlando explícitamente cuál proceso toma un recurso si hay más de uno esperando. Consideraremos **recurso** todo aquel elemento por el que un proceso puede ser demorado esperando adquirirlo. Para resolver este problema, implementaremos dos funciones: *request* y *release*. *Request* alocará inmediatamente un recurso a un proceso por algún tiempo, siempre y cuando el recurso esté libre. *Release* asignará el recurso, una vez liberado, al proceso demorado con el mínimo valor de tiempo. Si dos procesos tienen el mismo valor de tiempo, el recurso es alocado al que esperó más.  
 Esta forma de decidir que recurso se da a qué proceso en un determinado momento es lo que llamamos *scheduling*. El *scheduling* mensionado arriba es el que denominamos *Shortest-job-next*(SJF) y no es *fair* dado que un proceso que llegó antes no será atendido si llega otro más corto. Esto puede mejorarse con la técnica de ***aging***, es decir, darle preferencia a un procesos que esperó más tiempo.

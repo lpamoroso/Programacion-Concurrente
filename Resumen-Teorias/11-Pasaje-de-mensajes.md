@@ -46,3 +46,25 @@ Los canales son punto a punto, por lo que la primitiva send es bloqueante, es de
 Una de las diferencias(y algunas veces inconvenientes) del PMS con respecto al PMA es que, naturalmente, el grado de concurrencia se reduce bastante dado que el flujo es más estricto, a diferencia del PMA. Esto hace que en algunos casos, por ejemplo el de productor-consumidor, si hay operaciones que llevan más tiempo que otras, los pares send/receive se completarán asumiendo la demora del proceso que tarde más. Con PMA, la mayor concurrencia lograda a partir de la independencia de los pares hace que tarde mucho menos. Este efecto puede lograrse en PMS agregando un buffer en medio, a costa de la complejidad adicional.
 Otra interacción afectada por la pérdida de la concurrencia es la de cliente-servidor. En este caso es más evidente ya que cuando un cliente está liberando un recurso, no habría motivo para demorarlo hasta que el servidor reciba el mensaje, pero ésta es la forma que propone PMS.  
 Otra desventaja del PMS viene dada también por la naturaleza del send sincrónico, el cual es más proclive a deadlock.
+
+2. ¿En qué consiste la comunicación guardada y cuál es su utilidad?
+
+Con frecuencia, un proceso se quiere comunicar con más de un proceso, quizás por distintos canales, y no sabe el orden en el cual los otros procesos podrían querer comunicarse con el. Es decir, podría querer recibir información desde diferentes canales y no querer quedarse bloqueado si en algún canal no hay mensajes. Para poder comunicarse por distintos canales se utilizan sentencias de comunicación guardadas. Las sentencias de comunicación guardada soportan comunicación no determinística B; C->S; donde B es una expresión booleana que podría omitirse, en cuyo caso se asume true. B y C forman la guarda. Ésta tiene éxito si B es true y ejecutar C no causa demora. Si B es falsa, la guarda falla. Si B es true pero C no puede ejecutarse, entonces la guarda se bloquea.
+
+3. ¿Cómo es la ejecución de sentencias de alternativa e iteración que utilizan comunicación guardada?
+
+Sea la sentencia de alternativa con comunicación guardada de la forma:
+```
+If
+    B1; comunicación1 -> S1
+    B2; comunicación2 -> S2
+Fi
+```
+1. Se evalúan todas las expresiones booleanas, Bi y la sentencia de comunicación.
+* Si todas las guardas fallan, el if termina sin efecto.
+* Si al menos una guarda tiene éxito, se elige una de ellas de forma no determinística.
+* Si algunas guardas se bloquean, se espera hasta que alguna de ellas tenga éxito.
+2. Luego de elegir una guarda exitosa, se ejecuta la sentencia de comunicación asociada.
+3. Se ejecutan las sentencias S asociadas.
+
+La ejecución de la iteración es similar solo que los pasos anteriores se realizan hasta que todas las guardas fallen.
